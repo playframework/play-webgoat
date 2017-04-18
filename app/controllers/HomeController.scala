@@ -4,7 +4,7 @@ import javax.inject.Inject
 
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.ws.WSClient
-import play.api.mvc.{Action, Controller}
+import play.api.mvc._
 import play.twirl.api.Html
 
 import scala.concurrent.ExecutionContext
@@ -12,7 +12,7 @@ import scala.concurrent.ExecutionContext
 /**
  * A controller full of vulnerabilities.
  */
-class HomeController @Inject()(val messagesApi: MessagesApi, ws: WSClient)(implicit ec: ExecutionContext) extends Controller with I18nSupport {
+class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit ec: ExecutionContext) extends AbstractController(cc) with I18nSupport {
 
   def index = Action { implicit request =>
      Ok(Html(s"""
