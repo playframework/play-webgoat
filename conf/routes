@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET        /                                             controllers.HomeController.index
+
+
+GET        /attackerQuery                                controllers.HomeController.attackerQuery
+GET        /attackerRouteControlledQuery                 controllers.HomeController.attackerRouteControlledQuery(attacker)
+GET        /attackerRouteControlledPath/:attacker        controllers.HomeController.attackerRouteControlledPath(attacker)
+
+# These are a little harder to trigger because you have to push a cookie in the request
+GET        /attackerCookie                               controllers.HomeController.attackerCookie
+GET        /attackerFlash                                controllers.HomeController.attackerFlash
+
+# Push an additional header in the request for the attack
+GET        /attackerHeader                               controllers.HomeController.attackerHeader
+
+# Form based attacks
+POST       /attackerFormInput                            controllers.HomeController.attackerFormInput
+
+GET        /form                                         controllers.HomeController.constraintForm
+POST       /attackerConstraintForm                       controllers.HomeController.attackerConstraintForm
+
+# SSRF based attack
+GET       /attackerSSRF                                  controllers.HomeController.attackerSSRF
+
+# Map static resources from the /public folder to the /assets URL path
+GET        /assets/*file                                 controllers.Assets.at(path="/public", file)
+
+    

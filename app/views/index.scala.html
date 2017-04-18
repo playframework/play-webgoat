@@ -1,0 +1,21 @@
+@(form: Form[controllers.FormData.UserData])(implicit messages: Messages)
+
+@main("Welcome to Play") {
+
+    @helper.form(routes.HomeController.attackerConstraintForm()) {
+        @if(form.hasGlobalErrors) {
+            <ul>
+            @for(error <- form.globalErrors) {
+                <li>@Messages(error.messages, error.args)</li>
+            }
+            </ul>
+        }
+
+        @* render name value and error information *@
+        @helper.inputText(form("name"))
+        @helper.inputText(form("age"))
+
+        <input type="submit" value="submit">
+    }
+
+}

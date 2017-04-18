@@ -1,0 +1,3 @@
+constraints.invaliduser=You should not type spaces into this field.
+
+error.invaliduser=The name "{0}" contains spaces!
