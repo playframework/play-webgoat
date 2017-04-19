@@ -8,6 +8,7 @@ import play.api.mvc._
 import play.twirl.api.Html
 
 import scala.concurrent.ExecutionContext
+import scala.sys.process._
 
 /**
  * A controller full of vulnerabilities.
@@ -19,6 +20,8 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
        <html>
          <body>
            <ul>
+             <li><a href="${routes.HomeController.attackerQuerySimple()}">attackerQuerySimple</a></li>
+             <li><a href="${routes.HomeController.attackerQueryPatternMatching()}">attackerQueryPatternMatching</a></li>
              <li><a href="${routes.HomeController.attackerQuery()}">attackerQuery</a></li>
              <li><a href="${routes.HomeController.attackerRouteControlledQuery("foo")}">attackerRouteControlledQuery</a></li>
              <li><a href="${routes.HomeController.attackerRouteControlledPath("foo")}">attackerRouteControlledPath</a></li>
@@ -35,7 +38,38 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
   }
 
   /**
-   * Command injection directly from directly called query parameter
+   * Command injection & XSS directly from directly called query parameter
+   */
+  def attackerQuerySimple = Action { implicit request =>
+    val address = request.getQueryString("address")
+
+    // [RuleTest] Command Injection 
+    s"ping ${address}".!
+
+    // [RuleTest] Cross-Site Scripting: Reflected
+    val html = Html(s"Host ${address} pinged")
+
+    Ok(html) as HTML
+  }
+
+  /**
+   * Command injection & XSS directly from directly called query parameter
+   */
+  def attackerQueryPatternMatching = Action { implicit request =>
+
+    val addressRE= "(.*):(\\d+)".r
+    val address = request.cookies.get("address")
+
+    address match {
+      // [RuleTest] Command Injection 
+      case addressRE(address, port) => s"ping ${address}".!
+    }
+    // [RuleTest] Cross-Site Scripting: Reflected
+    Ok(Html(s"Host ${address} pinged")) as HTML
+  }
+
+  /**
+   * XSS directly from directly called query parameter
    */
   def attackerQuery = Action { implicit request =>
 
@@ -50,21 +84,21 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
   }
 
   /**
-   * Command injection through query string parsed by generated router from conf/routes file.
+   * XSS through query string parsed by generated router from conf/routes file.
    */
   def attackerRouteControlledQuery(attacker: String) = Action { implicit request =>
     Ok(Html(attacker)) as HTML
   }
 
   /**
-   * Command injection through path binding parsed by generated router from conf/routes file.
+   * XSS through path binding parsed by generated router from conf/routes file.
    */
   def attackerRouteControlledPath(attacker: String) = Action { implicit request =>
     Ok(Html(attacker)) as HTML
   }
 
   /**
-   * Command injection through attacker controlled info in cookie
+   * XSS through attacker controlled info in cookie
    */
   def attackerCookie = Action { implicit request =>
     // User cookies have no message authentication by default, so an attacker can pass in a cookie
@@ -77,7 +111,7 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
   }
 
   /**
-   * Command injection through attacker controlled header
+   * XSS through attacker controlled header
    */
   def attackerHeader = Action { implicit request =>
     // Request headers are also unvalidated by default.
@@ -91,7 +125,7 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
   }
 
   /**
-   * Command injection through URL encoded form input.
+   * XSS through URL encoded form input.
    */
   def attackerFormInput = Action { implicit request =>
     val boundForm = FormData.form.bindFromRequest()
@@ -103,7 +137,7 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
   }
 
   /**
-   * Command injection through attacker controlled flash cookie.
+   * XSS through attacker controlled flash cookie.
    */
   def attackerFlash = Action { implicit request =>
     // Flash is usually handled with
@@ -126,7 +160,7 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
   }
 
   /**
-   * Command injection through custom constraint with user input
+   * XSS through custom constraint with user input
    */
   def attackerConstraintForm = Action { implicit request =>
 
