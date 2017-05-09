@@ -127,6 +127,20 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
   }
 
   /**
+   * Unbound redirect through Header
+   */
+  def unvalidatedRedirect = Action { implicit request: Request[AnyContent] =>
+    request.headers.get("Location") match {
+      case Some(attackerLocation) =>
+        // Also see https://github.com/playframework/playframework/issues/6450
+        Redirect(attackerLocation)
+
+      case None =>
+        Ok("No location found!")
+    }
+  }
+
+  /**
    * XSS through URL encoded form input.
    */
   def attackerFormInput = Action { implicit request: Request[AnyContent] =>
