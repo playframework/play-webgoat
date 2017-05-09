@@ -33,6 +33,7 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
              <li><a href="${routes.HomeController.constraintForm()}">constraintForm</a></li>
              <li><a href="${routes.HomeController.attackerSSRF()}">attackerSSRF</a></li>
              <li><a href="${routes.HomeController.attackerCustomBodyParser()}">attackerCustomBodyParser</a></li>
+             <li><a href="${routes.HomeController.attackerOpenRedirect()}">attackerOpenRedirect</a></li>
            </ul>
          </body>
        </html>
@@ -129,7 +130,7 @@ class HomeController @Inject()(ws: WSClient, cc: ControllerComponents)(implicit 
   /**
    * Unbound redirect through Header
    */
-  def unvalidatedRedirect = Action { implicit request: Request[AnyContent] =>
+  def attackerOpenRedirect = Action { implicit request: Request[AnyContent] =>
     request.headers.get("Location") match {
       case Some(attackerLocation) =>
         // Also see https://github.com/playframework/playframework/issues/6450
