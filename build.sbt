@@ -6,4 +6,5 @@ lazy val `play-webgoat` = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.12.2"
 
+libraryDependencies += guice
 libraryDependencies += ws
