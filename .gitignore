@@ -1,9 +1,7 @@
 /*.fpr
 /*.log
 logs
-project/project
-project/target
-target
+target/
 tmp
 .history
 dist
@@ -15,5 +13,3 @@ dist
 /.project
 /RUNNING_PID
 /.settings
-
-    

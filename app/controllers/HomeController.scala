@@ -2,7 +2,6 @@ package controllers
 
 import javax.inject.Inject
 
-import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.streams.Accumulator
 import play.api.libs.ws.WSClient
 import play.api.mvc._
@@ -60,7 +59,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   def attackerQueryPatternMatching = Action { implicit request  =>
 
     val addressRE= "(.*):(\\d+)".r
-    val address = request.cookies.get("address")
+    val address = request.cookies.get("address").get.value
 
     address match {
       // [RuleTest] Command Injection 
