@@ -6,7 +6,6 @@ resolvers += Resolver.url(
   Resolver.ivyStylePatterns)
 
 // enable the plugin
-autoCompilerPlugins := true
 addCompilerPlugin(
   "com.lightbend" %% "scala-fortify" % "08abd94d" classifier "assembly"
     exclude("com.typesafe.conductr", "ent-suite-licenses-parser")
