@@ -6,7 +6,7 @@ resolvers += Resolver.url(
   Resolver.ivyStylePatterns)
 
 // enable the plugin
-addCompilerPlugin(
+libraryDependencies += compilerPlugin(
   "com.lightbend" %% "scala-fortify" % "08abd94d" classifier "assembly"
     exclude("com.typesafe.conductr", "ent-suite-licenses-parser")
     exclude("default", "scala-st-nodes"))
