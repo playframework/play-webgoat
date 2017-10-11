@@ -10,4 +10,8 @@ This application stays clear of the Twirl template engine for the most part, and
 sbt run
 ```
 
-Then go to http://localhost:9000. 
+Then go to http://localhost:9000.
+
+## Scala versions
+
+Cross-building to Scala 2.11 and 2.12 is supported.
