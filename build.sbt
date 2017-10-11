@@ -4,11 +4,19 @@ version := "1.0"
 
 lazy val `play-webgoat` = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.12.3"
+crossScalaVersions := Seq("2.12.3", "2.11.11")
+scalaVersion := crossScalaVersions.value.head
 scalacOptions ++= Seq(
   "-feature", "-unchecked", "-deprecation",
-  "-Xlint:-unused", // "unused" is too fragile w/ Twirl, routes file
   "-Xfatal-warnings")
+
+scalacOptions ++=
+  (CrossVersion.partialVersion(scalaVersion.value) match {
+    case Some((2, n)) if n >= 12 =>
+      Seq("-Xlint:-unused") // "unused" is too fragile w/ Twirl, routes file
+    case _ =>
+      Seq("-Xlint")
+  })
 
 libraryDependencies += guice
 libraryDependencies += ws
