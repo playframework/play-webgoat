@@ -5,21 +5,11 @@ resolvers += Resolver.url(
   new URL("http://repo.lightbend.com/commercial-releases/"))(
   Resolver.ivyStylePatterns)
 
-// eventually the same version number will work for both Scala
-// versions, but for now we must:
-val fortifyVersion: SettingKey[String] = settingKey("Fortify plugin version")
-fortifyVersion :=
-  (CrossVersion.partialVersion(scalaVersion.value) match {
-    case Some((2, 11)) => "91c4e364"
-    case Some((2, 12)) => "08abd94d"
-    case _ => throw new RuntimeException("unknown Scala version")
-  })
-
 // enable the plugin
 libraryDependencies += compilerPlugin(
-  "com.lightbend" %% "scala-fortify" % fortifyVersion.value classifier "assembly"
-    exclude("com.typesafe.conductr", "ent-suite-licenses-parser")
-    exclude("default", "scala-st-nodes"))
+  "com.lightbend" %% "scala-fortify" % "4f346b33"
+    classifier "assembly"
+    cross CrossVersion.patch)
 
 // configure the plugin
 scalacOptions += s"-P:fortify:out=${target.value}"
