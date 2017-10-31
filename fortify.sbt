@@ -26,5 +26,5 @@ val fpr = "scan.fpr"
 val scan: TaskKey[Unit] = taskKey("Fortify Scan")
 scan := {
   Seq("bash","-c", s"rm -rf ${fpr}").!
-  Seq("bash","-c", s"sourceanalyzer -filter filter.txt -f ${fpr} -scan target/*.nst").!
+  Seq("bash","-c", s"sourceanalyzer -f ${fpr} -scan target/*.nst").!
 }
