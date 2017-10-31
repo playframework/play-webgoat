@@ -12,7 +12,7 @@ libraryDependencies += compilerPlugin(
     cross CrossVersion.patch)
 
 // configure the plugin
-scalacOptions += s"-P:fortify:out=${target.value}"
+scalacOptions += s"-P:fortify:build=play-webgoat"
 
 // `translate` task
 val translate: TaskKey[Unit] = taskKey("Fortify Translation")
@@ -26,5 +26,5 @@ val fpr = "scan.fpr"
 val scan: TaskKey[Unit] = taskKey("Fortify Scan")
 scan := {
   Seq("bash","-c", s"rm -rf ${fpr}").!
-  Seq("bash","-c", s"sourceanalyzer -f ${fpr} -scan target/*.nst").!
+  Seq("bash","-c", s"sourceanalyzer -b play-webgoat -f ${fpr} -scan").!
 }
