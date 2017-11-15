@@ -7,7 +7,7 @@ resolvers += Resolver.url(
 
 // enable the plugin
 libraryDependencies += compilerPlugin(
-  "com.lightbend" %% "scala-fortify" % "0.1.0"
+  "com.lightbend" %% "scala-fortify" % "0.1.2"
     classifier "assembly"
     cross CrossVersion.patch)
 
