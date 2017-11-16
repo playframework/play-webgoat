@@ -13,19 +13,3 @@ libraryDependencies += compilerPlugin(
 
 // configure the plugin
 scalacOptions += s"-P:fortify:build=play-webgoat"
-
-// `translate` task
-val translate: TaskKey[Unit] = taskKey("Fortify Translation")
-translate := Def.sequential(
-  Def.task { Seq("bash", "-c", s"sourceanalyzer -b play-webgoat -clean").! },
-  clean in Compile,
-  compile in Compile
-).value
-
-// `scan` task
-val fpr = "scan.fpr"
-val scan: TaskKey[Unit] = taskKey("Fortify Scan")
-scan := {
-  Seq("bash", "-c", s"rm -rf ${fpr}").!
-  Seq("bash", "-c", s"sourceanalyzer -b play-webgoat -f ${fpr} -scan").!
-}
