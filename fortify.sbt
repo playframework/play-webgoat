@@ -6,10 +6,9 @@ resolvers += Resolver.url(
   Resolver.ivyStylePatterns)
 
 // enable the plugin
-libraryDependencies += compilerPlugin(
+addCompilerPlugin(
   "com.lightbend" %% "scala-fortify" % "0.1.2"
-    classifier "assembly"
-    cross CrossVersion.patch)
+    classifier "assembly" cross CrossVersion.patch)
 
 // configure the plugin
 scalacOptions += s"-P:fortify:build=play-webgoat"
