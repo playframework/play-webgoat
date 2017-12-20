@@ -8,8 +8,8 @@ resolvers += Resolver.url(
 
 // enable the plugin
 addCompilerPlugin(
-  "com.lightbend" %% "scala-fortify" % "1.0.0"
+  "com.lightbend" %% "scala-fortify" % "1.0.1"
     classifier "assembly" cross CrossVersion.patch)
 
 // configure the plugin
-scalacOptions += s"-P:fortify:build=play-webgoat"
+scalacOptions += "-P:fortify:build=play-webgoat"
