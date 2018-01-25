@@ -6,8 +6,16 @@ This application stays clear of the Twirl template engine for the most part, and
 
 ## Running
 
-```
+### Using sbt
+
+```bash
 sbt run
+```
+
+### Using Gradle
+
+```bash
+./gradlew runPlayBinary
 ```
 
 Then go to http://localhost:9000.
