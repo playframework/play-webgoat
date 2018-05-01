@@ -9,7 +9,7 @@ This application stays clear of the Twirl template engine for the most part, and
 This `fortify` branch of the repository configures sbt to translate
 the code for scanning by Fortify SCA.
 
-The list of vulnerabilites Fortify finds is in [[vulnerabilities.txt]].
+The list of vulnerabilites Fortify finds is in [vulnerabilities.txt](https://github.com/playframework/play-webgoat/blob/fortify/vulnerabilities.txt).
 
 For more information on Fortify SCA, see
 [https://software.microfocus.com/en-us/products/static-code-analysis-sast/overview](https://software.microfocus.com/en-us/products/static-code-analysis-sast/overview).
