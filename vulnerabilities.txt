@@ -1,0 +1,154 @@
+[91CCAADE3FE2952660F9BCA12778D7ED : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(53) :  ->Result.as(this)
+    app/controllers/HomeController.scala(53) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(51) : <=> (html)
+    app/controllers/HomeController.scala(51) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(51) : <->Object.toString(this->return)
+    app/controllers/HomeController.scala(45) : <=> (address)
+    app/controllers/HomeController.scala(45) : <- RequestHeader.getQueryString(return)
+
+[EBCAC5F4C3FE44BFF864CF5C1000A26A : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(69) :  ->Result.as(this)
+    app/controllers/HomeController.scala(69) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(69) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(62) : <=> (address)
+    app/controllers/HomeController.scala(62) : <->Cookie.value(this->return)
+    app/controllers/HomeController.scala(62) : <->Option.get(this->return)
+    app/controllers/HomeController.scala(62) : <->Cookies.get(this->return)
+    app/controllers/HomeController.scala(62) : <- RequestHeader.cookies(return)
+
+[082B874905523B2C4782C288CB8CE9C3 : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(91) :  ->Result.as(this)
+    app/controllers/HomeController.scala(91) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(91) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(90) :  ->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.apply(this)
+        app/controllers/HomeController.scala(90) : <=> (this)
+    app/controllers/HomeController.scala(90) : <->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.innerinit^(0->this)
+    app/controllers/HomeController.scala(75) :  ->HomeController.attackerRouteControlledQuery(0)
+
+[5B7D0DB4D614ADB01C888ABFA9BED320 : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(84) :  ->Result.as(this)
+    app/controllers/HomeController.scala(77) : <=> (result)
+    app/controllers/HomeController.scala(77) : <->Option.getOrElse(this->return)
+        app/controllers/HomeController.scala(81) : return
+        app/controllers/HomeController.scala(81) : <->Results$Status.apply(0->return)
+        app/controllers/HomeController.scala(81) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(77) : <->controllers.HomeController$anonfun$attackerQuery$2.apply(0->return)
+    app/controllers/HomeController.scala(77) : <- RequestHeader.getQueryString(return)
+
+[C385C2543AC4802E889D09FACAA64109 : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(98) :  ->Result.as(this)
+    app/controllers/HomeController.scala(98) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(98) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(97) :  ->controllers.HomeController$anonfun$attackerRouteControlledPath$1.apply(this)
+        app/controllers/HomeController.scala(97) : <=> (this)
+    app/controllers/HomeController.scala(97) : <->controllers.HomeController$anonfun$attackerRouteControlledPath$1.innerinit^(0->this)
+    app/controllers/HomeController.scala(90) :  ->HomeController.attackerRouteControlledPath(0)
+
+[8EE69802E6FCE8A1A4739050180C0BBC : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(111) :  ->Result.as(this)
+    app/controllers/HomeController.scala(106) : <=> (result)
+    app/controllers/HomeController.scala(106) : <->Option.getOrElse(this->return)
+        app/controllers/HomeController.scala(108) : return
+        app/controllers/HomeController.scala(108) : <->Results$Status.apply(0->return)
+        app/controllers/HomeController.scala(108) : <->Html.apply(0->return)
+        app/controllers/HomeController.scala(108) : <->Cookie.value(this->return)
+    app/controllers/HomeController.scala(106) : <->controllers.HomeController$anonfun$attackerCookie$2.apply(0->return)
+    app/controllers/HomeController.scala(106) : <->Cookies.get(this->return)
+    app/controllers/HomeController.scala(106) : <- RequestHeader.cookies(return)
+
+[7BB2A2B92BB725FFAE8CC580EC07547E : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(125) :  ->Result.as(this)
+    app/controllers/HomeController.scala(120) : <=> (result)
+    app/controllers/HomeController.scala(120) : <->Option.getOrElse(this->return)
+        app/controllers/HomeController.scala(122) : return
+        app/controllers/HomeController.scala(122) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(120) : <->controllers.HomeController$anonfun$attackerHeader$2.apply(0->return)
+    app/controllers/HomeController.scala(120) : <->Headers.get(this->return)
+    app/controllers/HomeController.scala(120) : <- WrappedRequest.headers(return)
+
+[AE56D1D3585799C8CB8BAF2C9830EA17 : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(150) :  ->Result.as(this)
+    app/controllers/HomeController.scala(150) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(150) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(149) : <=> (command)
+        app/controllers/HomeController.scala(306) : return (this.name)
+    app/controllers/HomeController.scala(149) : <->FormData$UserData.name(this.name->return)
+    app/controllers/HomeController.scala(147) :  ->controllers.HomeController$anonfun$attackerFormInput$3.apply(0.name)
+    app/controllers/HomeController.scala(146) : <=> (boundForm)
+    app/controllers/HomeController.scala(146) : <- Form.bindFromRequest(return)
+
+[E6CC52318B0B2200473A13FE2F3944AE : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(169) :  ->Result.as(this)
+    app/controllers/HomeController.scala(164) : <=> (result)
+    app/controllers/HomeController.scala(164) : <->Option.getOrElse(this->return)
+        app/controllers/HomeController.scala(166) : return
+        app/controllers/HomeController.scala(166) : <->Results$Status.apply(0->return)
+        app/controllers/HomeController.scala(166) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(164) : <->controllers.HomeController$anonfun$attackerFlash$2.apply(0->return)
+    app/controllers/HomeController.scala(164) : <->Flash.get(this->return)
+    app/controllers/HomeController.scala(164) : <- RequestHeader.flash(return)
+
+[8D691E21A8DD2904FFB9D9C86B76D022 : high : Server-Side Request Forgery : dataflow ]
+app/controllers/HomeController.scala(207) :  ->WSClient.url(0)
+    app/controllers/HomeController.scala(205) : <=> (attackerUrl)
+    app/controllers/HomeController.scala(205) : <->Option.getOrElse(this->return)
+    app/controllers/HomeController.scala(205) : <->AnyContent.asText(this->return)
+    app/controllers/HomeController.scala(205) : <- WrappedRequest.body(return)
+
+[2D3C1DE38D160DC1111779E2B1CB792A : critical : Open Redirect : dataflow ]
+app/controllers/HomeController.scala(135) :  ->Results.Redirect(0)
+    app/controllers/HomeController.scala(133) : <=> (attackerLocation)
+    app/controllers/HomeController.scala(133) : <->Some.value(this->return)
+    app/controllers/HomeController.scala(132) : <->Headers.get(this->return)
+    app/controllers/HomeController.scala(132) : <- WrappedRequest.headers(return)
+
+[6D5A6D191A67348160822F3A70E73B41 : critical : Command Injection : dataflow ]
+app/controllers/HomeController.scala(48) :  ->ProcessBuilder.!(this)
+    app/controllers/HomeController.scala(48) : <->ProcessImplicits.stringToProcess(0->return)
+    app/controllers/HomeController.scala(48) : <->Object.toString(this->return)
+    app/controllers/HomeController.scala(45) : <=> (address)
+    app/controllers/HomeController.scala(45) : <- RequestHeader.getQueryString(return)
+
+[E054AE8B29DE1B03994CE9E180806D14 : critical : Command Injection : dataflow ]
+app/controllers/HomeController.scala(66) :  ->ProcessBuilder.!(this)
+    app/controllers/HomeController.scala(66) : <->ProcessImplicits.stringToProcess(0->return)
+    app/controllers/HomeController.scala(66) : <=> (address~1)
+    app/controllers/HomeController.scala(66) : <->LinearSeqOptimized.apply(this->return)
+    app/controllers/HomeController.scala(66) : <->Option.get(this->return)
+    app/controllers/HomeController.scala(66) : <->Regex.unapplySeq(0->return)
+    app/controllers/HomeController.scala(62) : <=> (address)
+    app/controllers/HomeController.scala(62) : <->Cookie.value(this->return)
+    app/controllers/HomeController.scala(62) : <->Option.get(this->return)
+    app/controllers/HomeController.scala(62) : <->Cookies.get(this->return)
+    app/controllers/HomeController.scala(62) : <- RequestHeader.cookies(return)
+
+[7539909C6B48052B774D20F0F9D4B833 : critical : Command Injection : dataflow ]
+app/controllers/HomeController.scala(221) :  ->ProcessBuilder.!!(this)
+    app/controllers/HomeController.scala(221) : <->ProcessImplicits.stringToProcess(0->return)
+    app/controllers/HomeController.scala(219) :  ->controllers.HomeController$anonfun$attackerCustomBodyParser$2.apply(0)
+    app/controllers/HomeController.scala(219) : <- RequestHeader.getQueryString(return)
+
+[A054B8CF843466C9C08F7C31A431AF62 : low : Missing Form Field Constraints : structural ]
+    app/controllers/HomeController.scala(268)
+
+[B2934DA20E3AD7BB839D019DDB7EF610 : low : Missing Form Field Validation : structural ]
+    app/controllers/HomeController.scala(268)
+
+[3123D430AEB62E4FF2BB7F6A775DE9F4 : low : Missing Form Field Constraints : structural ]
+    app/controllers/HomeController.scala(268)
+
+[EF0E143E15EB85C0226B44014A79E298 : low : Missing Form Field Validation : structural ]
+    app/controllers/HomeController.scala(268)
+
+[3F112D268BC9CC49AEA7DD1B65D2543E : low : Missing Form Field Constraints : structural ]
+    app/controllers/HomeController.scala(275)
+
+[1D7A640F7D4C395E44AE1B510CA5FA05 : low : Missing Form Field Validation : structural ]
+    app/controllers/HomeController.scala(275)
+
+[00132A9E4889966ADB911CACDED783FE : low : Missing Form Field Constraints : structural ]
+    app/controllers/HomeController.scala(275)
+
+[A10FACCDB6070FBBC985550D960C34F3 : low : Code Correctness : Non-Static Inner Class Implements Serializable : structural ]
+    app/controllers/HomeController.scala(306)
