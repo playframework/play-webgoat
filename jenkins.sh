@@ -27,7 +27,7 @@ $SOURCEANALYZER \
   -b play-webgoat \
   -logfile target/scan.log \
   -scan \
-  | tail +4 > target/vulnerabilities-actual.txt
+  | tail -n +4 > target/vulnerabilities-actual.txt
 
 cat target/scan.log
 
