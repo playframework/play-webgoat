@@ -4,6 +4,18 @@ A vulnerable Play application for attackers.
 
 This application stays clear of the Twirl template engine for the most part, and shows where unvalidated input from the client can be improperly trusted by the application and included in the response.
 
+## Fortify SCA
+
+This `fortify` branch of the repository configures sbt to translate
+the code for scanning by Fortify SCA.
+
+The list of vulnerabilites Fortify finds is in [[vulnerabilities.txt]].
+
+For more information on Fortify SCA, see
+[https://software.microfocus.com/en-us/products/static-code-analysis-sast/overview](https://software.microfocus.com/en-us/products/static-code-analysis-sast/overview).
+Fortify's Scala support is documented at
+[https://developer.lightbend.com/docs/fortify/latest/](https://developer.lightbend.com/docs/fortify/latest/).
+
 ## Running
 
 ```
