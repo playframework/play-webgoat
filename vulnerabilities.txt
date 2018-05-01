@@ -72,7 +72,7 @@ app/controllers/HomeController.scala(150) :  ->Result.as(this)
     app/controllers/HomeController.scala(150) : <->Results$Status.apply(0->return)
     app/controllers/HomeController.scala(150) : <->Html.apply(0->return)
     app/controllers/HomeController.scala(149) : <=> (command)
-        app/controllers/HomeController.scala(306) : return (this.name)
+        app/controllers/HomeController.scala(315) : return (this.name)
     app/controllers/HomeController.scala(149) : <->FormData$UserData.name(this.name->return)
     app/controllers/HomeController.scala(147) :  ->controllers.HomeController$anonfun$attackerFormInput$3.apply(0.name)
     app/controllers/HomeController.scala(146) : <=> (boundForm)
@@ -90,11 +90,11 @@ app/controllers/HomeController.scala(169) :  ->Result.as(this)
     app/controllers/HomeController.scala(164) : <- RequestHeader.flash(return)
 
 [8D691E21A8DD2904FFB9D9C86B76D022 : high : Server-Side Request Forgery : dataflow ]
-app/controllers/HomeController.scala(207) :  ->WSClient.url(0)
-    app/controllers/HomeController.scala(205) : <=> (attackerUrl)
-    app/controllers/HomeController.scala(205) : <->Option.getOrElse(this->return)
-    app/controllers/HomeController.scala(205) : <->AnyContent.asText(this->return)
-    app/controllers/HomeController.scala(205) : <- WrappedRequest.body(return)
+app/controllers/HomeController.scala(216) :  ->WSClient.url(0)
+    app/controllers/HomeController.scala(214) : <=> (attackerUrl)
+    app/controllers/HomeController.scala(214) : <->Option.getOrElse(this->return)
+    app/controllers/HomeController.scala(214) : <->AnyContent.asText(this->return)
+    app/controllers/HomeController.scala(214) : <- WrappedRequest.body(return)
 
 [2D3C1DE38D160DC1111779E2B1CB792A : critical : Open Redirect : dataflow ]
 app/controllers/HomeController.scala(135) :  ->Results.Redirect(0)
@@ -124,31 +124,38 @@ app/controllers/HomeController.scala(66) :  ->ProcessBuilder.!(this)
     app/controllers/HomeController.scala(62) : <- RequestHeader.cookies(return)
 
 [7539909C6B48052B774D20F0F9D4B833 : critical : Command Injection : dataflow ]
-app/controllers/HomeController.scala(221) :  ->ProcessBuilder.!!(this)
-    app/controllers/HomeController.scala(221) : <->ProcessImplicits.stringToProcess(0->return)
-    app/controllers/HomeController.scala(219) :  ->controllers.HomeController$anonfun$attackerCustomBodyParser$2.apply(0)
-    app/controllers/HomeController.scala(219) : <- RequestHeader.getQueryString(return)
+app/controllers/HomeController.scala(230) :  ->ProcessBuilder.!!(this)
+    app/controllers/HomeController.scala(230) : <->ProcessImplicits.stringToProcess(0->return)
+    app/controllers/HomeController.scala(228) :  ->controllers.HomeController$anonfun$attackerCustomBodyParser$2.apply(0)
+    app/controllers/HomeController.scala(228) : <- RequestHeader.getQueryString(return)
+
+[7AA03F985E923884F14D7CCCEBCAFC97 : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
+    app/views/xss.scala.html(3) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(201) :  ->xss.apply(0)
+    app/controllers/HomeController.scala(202) :  ->controllers.HomeController$anonfun$twirlXSS$2.apply(0)
+    app/controllers/HomeController.scala(202) : <- RequestHeader.getQueryString(return)
 
 [A054B8CF843466C9C08F7C31A431AF62 : low : Missing Form Field Constraints : structural ]
-    app/controllers/HomeController.scala(268)
+    app/controllers/HomeController.scala(277)
 
 [B2934DA20E3AD7BB839D019DDB7EF610 : low : Missing Form Field Validation : structural ]
-    app/controllers/HomeController.scala(268)
+    app/controllers/HomeController.scala(277)
 
 [3123D430AEB62E4FF2BB7F6A775DE9F4 : low : Missing Form Field Constraints : structural ]
-    app/controllers/HomeController.scala(268)
+    app/controllers/HomeController.scala(277)
 
 [EF0E143E15EB85C0226B44014A79E298 : low : Missing Form Field Validation : structural ]
-    app/controllers/HomeController.scala(268)
+    app/controllers/HomeController.scala(277)
 
 [3F112D268BC9CC49AEA7DD1B65D2543E : low : Missing Form Field Constraints : structural ]
-    app/controllers/HomeController.scala(275)
+    app/controllers/HomeController.scala(284)
 
 [1D7A640F7D4C395E44AE1B510CA5FA05 : low : Missing Form Field Validation : structural ]
-    app/controllers/HomeController.scala(275)
+    app/controllers/HomeController.scala(284)
 
 [00132A9E4889966ADB911CACDED783FE : low : Missing Form Field Constraints : structural ]
-    app/controllers/HomeController.scala(275)
+    app/controllers/HomeController.scala(284)
 
 [A10FACCDB6070FBBC985550D960C34F3 : low : Code Correctness : Non-Static Inner Class Implements Serializable : structural ]
-    app/controllers/HomeController.scala(306)
+    app/controllers/HomeController.scala(315)
