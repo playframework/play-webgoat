@@ -2,7 +2,7 @@
 
 A vulnerable Play application for attackers.
 
-This application stays clear of the Twirl template engine for the most part, and shows where unvalidated input from the client can be improperly trusted by the application and included in the response.
+For example, this shows where unvalidated input from the client can be improperly trusted by the application and included in the response. There is also a sample cross-site scripting vulnerability.
 
 ## Fortify SCA
 

@@ -194,6 +194,15 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   }
 
   /**
+   * XSS involving Twirl template
+   */
+  def twirlXSS = Action { implicit request  =>
+    request.getQueryString("xss").map { payload =>
+      Ok(views.html.xss(payload))
+    }.getOrElse(Ok("Missing xss param"))
+  }
+
+  /**
    * SSRF attacks done with Play WS
    */
   def attackerSSRF = Action.async { implicit request  =>

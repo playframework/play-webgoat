@@ -1,0 +1,12 @@
+@(payload : String)
+
+@main("Welcome to Play") {
+
+    <p>
+    XSS: @Html(payload)
+    </p>
+    <p>
+    No XSS: @payload
+    </p>
+
+}
