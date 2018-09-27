@@ -4,7 +4,9 @@ cache:
   - $HOME/.ivy2
   - $HOME/.sbt/boot
   - $HOME/.sbt/launchers
-jdk: oraclejdk8
+jdk:
+  - oraclejdk8
+  - openjdk11
 language: scala
 script:
   - sbt +test
