@@ -4,7 +4,7 @@ version := "1.0"
 
 lazy val `play-webgoat` = (project in file(".")).enablePlugins(PlayScala)
 
-crossScalaVersions := Seq("2.12.6", "2.11.12")
+crossScalaVersions := Seq("2.12.7", "2.11.12")
 scalaVersion := crossScalaVersions.value.head
 scalacOptions ++= Seq(
   "-feature", "-unchecked", "-deprecation",
