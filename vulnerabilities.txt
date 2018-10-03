@@ -17,15 +17,6 @@ app/controllers/HomeController.scala(69) :  ->Result.as(this)
     app/controllers/HomeController.scala(62) : <->Cookies.get(this->return)
     app/controllers/HomeController.scala(62) : <- RequestHeader.cookies(return)
 
-[082B874905523B2C4782C288CB8CE9C3 : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(91) :  ->Result.as(this)
-    app/controllers/HomeController.scala(91) : <->Results$Status.apply(0->return)
-    app/controllers/HomeController.scala(91) : <->Html.apply(0->return)
-    app/controllers/HomeController.scala(90) :  ->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.apply(this)
-        app/controllers/HomeController.scala(90) : <=> (this)
-    app/controllers/HomeController.scala(90) : <->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.innerinit^(0->this)
-    app/controllers/HomeController.scala(75) :  ->HomeController.attackerRouteControlledQuery(0)
-
 [5B7D0DB4D614ADB01C888ABFA9BED320 : critical : Cross-Site Scripting : Reflected : dataflow ]
 app/controllers/HomeController.scala(84) :  ->Result.as(this)
     app/controllers/HomeController.scala(77) : <=> (result)
@@ -36,6 +27,15 @@ app/controllers/HomeController.scala(84) :  ->Result.as(this)
     app/controllers/HomeController.scala(77) : <->controllers.HomeController$anonfun$attackerQuery$2.apply(0->return)
     app/controllers/HomeController.scala(77) : <- RequestHeader.getQueryString(return)
 
+[082B874905523B2C4782C288CB8CE9C3 : critical : Cross-Site Scripting : Reflected : dataflow ]
+app/controllers/HomeController.scala(91) :  ->Result.as(this)
+    app/controllers/HomeController.scala(91) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(91) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(90) :  ->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.apply(this)
+        app/controllers/HomeController.scala(90) : <=> (this)
+    app/controllers/HomeController.scala(90) : <->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.innerinit^(0->this)
+    app/controllers/HomeController.scala(90) :  ->HomeController.attackerRouteControlledQuery(0)
+
 [C385C2543AC4802E889D09FACAA64109 : critical : Cross-Site Scripting : Reflected : dataflow ]
 app/controllers/HomeController.scala(98) :  ->Result.as(this)
     app/controllers/HomeController.scala(98) : <->Results$Status.apply(0->return)
@@ -43,7 +43,7 @@ app/controllers/HomeController.scala(98) :  ->Result.as(this)
     app/controllers/HomeController.scala(97) :  ->controllers.HomeController$anonfun$attackerRouteControlledPath$1.apply(this)
         app/controllers/HomeController.scala(97) : <=> (this)
     app/controllers/HomeController.scala(97) : <->controllers.HomeController$anonfun$attackerRouteControlledPath$1.innerinit^(0->this)
-    app/controllers/HomeController.scala(90) :  ->HomeController.attackerRouteControlledPath(0)
+    app/controllers/HomeController.scala(97) :  ->HomeController.attackerRouteControlledPath(0)
 
 [8EE69802E6FCE8A1A4739050180C0BBC : critical : Cross-Site Scripting : Reflected : dataflow ]
 app/controllers/HomeController.scala(111) :  ->Result.as(this)
@@ -136,6 +136,9 @@ app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
     app/controllers/HomeController.scala(202) :  ->controllers.HomeController$anonfun$twirlXSS$2.apply(0)
     app/controllers/HomeController.scala(202) : <- RequestHeader.getQueryString(return)
 
+[A10FACCDB6070FBBC985550D960C34F3 : low : Code Correctness : Non-Static Inner Class Implements Serializable : structural ]
+    app/controllers/HomeController.scala(239)
+
 [A054B8CF843466C9C08F7C31A431AF62 : low : Missing Form Field Constraints : structural ]
     app/controllers/HomeController.scala(277)
 
@@ -156,6 +159,3 @@ app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
 
 [00132A9E4889966ADB911CACDED783FE : low : Missing Form Field Constraints : structural ]
     app/controllers/HomeController.scala(284)
-
-[A10FACCDB6070FBBC985550D960C34F3 : low : Code Correctness : Non-Static Inner Class Implements Serializable : structural ]
-    app/controllers/HomeController.scala(315)
