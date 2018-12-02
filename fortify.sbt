@@ -6,7 +6,7 @@ resolvers += "lightbend-commercial-releases" at
 
 // enable the plugin
 addCompilerPlugin(
-  "com.lightbend" %% "scala-fortify" % "1.0.12"
+  "com.lightbend" %% "scala-fortify" % "1.0.13"
     classifier "assembly" cross CrossVersion.patch)
 
 // configure the plugin

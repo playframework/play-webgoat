@@ -14,7 +14,7 @@ else
    SCA_DIR=/home/ubuntu/Fortify
    SBT=/usr/bin/sbt
 fi
-SOURCEANALYZER=$SCA_DIR/Fortify_SCA_and_Apps_18.10/bin/sourceanalyzer
+SOURCEANALYZER=$SCA_DIR/Fortify_SCA_and_Apps_18.20/bin/sourceanalyzer
 $SOURCEANALYZER -b play-webgoat -clean
 
 java -version
