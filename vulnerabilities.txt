@@ -7,16 +7,6 @@ app/controllers/HomeController.scala(53) :  ->Result.as(this)
     app/controllers/HomeController.scala(45) : <=> (address)
     app/controllers/HomeController.scala(45) : <- RequestHeader.getQueryString(return)
 
-[EBCAC5F4C3FE44BFF864CF5C1000A26A : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(69) :  ->Result.as(this)
-    app/controllers/HomeController.scala(69) : <->Results$Status.apply(0->return)
-    app/controllers/HomeController.scala(69) : <->Html.apply(0->return)
-    app/controllers/HomeController.scala(62) : <=> (address)
-    app/controllers/HomeController.scala(62) : <->Cookie.value(this->return)
-    app/controllers/HomeController.scala(62) : <->Option.get(this->return)
-    app/controllers/HomeController.scala(62) : <->Cookies.get(this->return)
-    app/controllers/HomeController.scala(62) : <- RequestHeader.cookies(return)
-
 [5B7D0DB4D614ADB01C888ABFA9BED320 : critical : Cross-Site Scripting : Reflected : dataflow ]
 app/controllers/HomeController.scala(84) :  ->Result.as(this)
     app/controllers/HomeController.scala(77) : <=> (result)
