@@ -10,4 +10,7 @@ addCompilerPlugin(
     classifier "assembly" cross CrossVersion.patch)
 
 // configure the plugin
-scalacOptions += "-P:fortify:build=play-webgoat"
+scalacOptions ++= Seq(
+  "-P:fortify:scaversion=19.1",
+  "-P:fortify:build=play-webgoat"
+)
