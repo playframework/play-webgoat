@@ -14,4 +14,4 @@ Then go to http://localhost:9000.
 
 ## Scala versions
 
-Cross-building to Scala 2.11 and 2.12 is supported.
+Cross-building to Scala 2.11, 2.12 and 2.13 is supported.
