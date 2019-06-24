@@ -47,9 +47,9 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
     // [RuleTest] Command Injection 
     s"ping ${address}".!
 
-    // [RuleTest] Cross-Site Scripting: Reflected
     val html = Html(s"Host ${address} pinged")
 
+    // [RuleTest] Cross-Site Scripting: Reflected
     Ok(html) as HTML
   }
 
