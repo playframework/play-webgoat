@@ -1,0 +1,72 @@
+name: test
+
+on:
+  push:
+    branches:
+      - fortify
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: coursier/cache-action@v6
+    - uses: actions/setup-java@v2
+      with:
+        distribution: adopt
+        java-version: 8
+
+    - uses: actions/cache@v2
+      env:
+        cache-name: fortify
+      with:
+        path: ./Fortify
+        key: fortify-20.2.0
+
+    # https://github.com/gruntwork-io/fetch
+
+    - name: Install Fetch
+      run: brew install fetch
+
+    - name: Install secrets
+      env:
+        LIGHTBEND_LICENSE: ${{secrets.LIGHTBEND_LICENSE}}
+        FORTIFY_LICENSE: ${{secrets.FORTIFY_LICENSE}}
+      run: |
+        mkdir -p ~/.lightbend
+        echo "$LIGHTBEND_LICENSE" > ~/.lightbend/license
+        echo "$FORTIFY_LICENSE" > fortify.license
+        echo 'resolvers += "lightbend-commercial-releases" at' > lightbend.sbt
+        echo -n '  "https://repo.lightbend.com/pass/' >> lightbend.sbt
+        echo -n ${{secrets.LIGHTBEND_REPO_PASS}} >> lightbend.sbt
+        echo '/commercial-releases"' >> lightbend.sbt
+
+    # The easiest way I could think of to make the Fortify installer available to CI
+    # was to attach it as a release asset to a tag in a private repo.
+    - name: Install Fortify
+      run: |
+        if [[ ! -d Fortify ]] ; then
+          GITHUB_OAUTH_TOKEN=${{secrets.FORTIFY_INSTALLER_TOKEN}} fetch --repo="https://github.com/lightbend/scala-fortify" --tag="20.2.0_linux_x64" --release-asset="Fortify_SCA_and_Apps_20.2.0_linux_x64.run" .
+          chmod +x Fortify_SCA_and_Apps_20.2.0_linux_x64.run
+          mkdir Fortify
+          echo installdir=`pwd`/Fortify/Fortify_SCA_and_Apps_20.2.0 > Fortify_SCA_and_Apps_20.2.0_linux_x64.run.options
+          echo fortify_license_path=`pwd`/fortify.license >> Fortify_SCA_and_Apps_20.2.0_linux_x64.run.options
+          ./Fortify_SCA_and_Apps_20.2.0_linux_x64.run --mode unattended
+          # download the Scala security rules; VersionTests makes sure they're the ones we expect
+          ./Fortify/Fortify_SCA_and_Apps_20.2.0/bin/fortifyupdate
+        fi
+
+    - name: Test
+      run: |
+        sbt compile
+        rm -f target/vulnerabilities-actual.txt
+        ./Fortify/Fortify_SCA_and_Apps_20.2.0/bin/sourceanalyzer \
+          -b play-webgoat \
+          -logfile target/scan.log \
+          -scan \
+          | tail -n +4 > target/vulnerabilities-actual.txt
+        cat target/scan.log
+        sum vulnerabilities.txt target/vulnerabilities-actual.txt
+        diff -u vulnerabilities.txt target/vulnerabilities-actual.txt

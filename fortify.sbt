@@ -1,8 +1,5 @@
-// this makes it so sbt can resolve the plugin
-credentials += Credentials(
-  Path.userHome / ".lightbend" / "commercial.credentials")
-resolvers += "lightbend-commercial-releases" at
-  "https://repo.lightbend.com/commercial-releases/"
+// it is assumed you have a file in `~/.sbt/1.0`, or that you edit this file,
+// in order to be able to resolve the plugin
 
 // enable the plugin
 addCompilerPlugin(
