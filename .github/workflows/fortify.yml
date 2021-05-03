@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - fortify
+  pull_request:
+    branches:
+      - fortify
 
 jobs:
   test:
