@@ -8,6 +8,6 @@ addCompilerPlugin(
 
 // configure the plugin
 scalacOptions ++= Seq(
-  "-P:fortify:scaversion=20.2",
+  "-P:fortify:scaversion=21.1",
   "-P:fortify:build=play-webgoat"
 )
