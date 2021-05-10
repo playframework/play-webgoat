@@ -13,6 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        java: [8, 11]
         scala: [2.12.13, 2.13.5]
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +22,7 @@ jobs:
     - uses: actions/setup-java@v2
       with:
         distribution: adopt
-        java-version: 8
+        java-version: ${{matrix.java}}
 
     - uses: actions/cache@v2
       env:
