@@ -67,7 +67,7 @@ app/controllers/HomeController.scala(125) :  ->Result.as(this)
     app/controllers/HomeController.scala(120) : <->Headers.get(this->return)
     app/controllers/HomeController.scala(120) : <- WrappedRequest.headers(return)
 
-[F50BEA09292814EE3929E5658E10CD9D : critical : Cross-Site Scripting : Reflected : dataflow ]
+[39721F0AF3B5131A3B3035F9317C4CD9 : critical : Cross-Site Scripting : Reflected : dataflow ]
 app/controllers/HomeController.scala(150) :  ->Result.as(this)
     app/controllers/HomeController.scala(150) : <->Results$Status.apply(0->return)
     app/controllers/HomeController.scala(150) : <->Html.apply(0->return)
@@ -114,7 +114,7 @@ app/controllers/HomeController.scala(48) :  ->ProcessBuilder.!(this)
 app/controllers/HomeController.scala(66) :  ->ProcessBuilder.!(this)
     app/controllers/HomeController.scala(66) : <->ProcessImplicits.stringToProcess(0->return)
     app/controllers/HomeController.scala(66) : <=> (address~1)
-    app/controllers/HomeController.scala(66) : <->LinearSeqOps.apply(this->return)
+    app/controllers/HomeController.scala(66) : <->LinearSeqOptimized.apply(this->return)
     app/controllers/HomeController.scala(66) : <->Option.get(this->return)
     app/controllers/HomeController.scala(66) : <->Regex.unapplySeq(0->return)
     app/controllers/HomeController.scala(62) : <=> (address)
@@ -149,7 +149,7 @@ app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
     app/controllers/HomeController.scala(315) : Branch not taken: (this != <inline expression>)
     app/controllers/HomeController.scala(315) : goto
     app/controllers/HomeController.scala(315) : Branch taken: <inline expression>
-    app/controllers/HomeController.scala(315) : called -> used : <inline expression>.age() : <inline expression> used without null check
+    app/controllers/HomeController.scala(315) : called -> used : <inline expression>.name() : <inline expression> used without null check
 
 [A6529A7EBCDA4CEA93D49376FA2E103A : low : Code Correctness : Non-Static Inner Class Implements Serializable : structural ]
     app/controllers/HomeController.scala(239)
