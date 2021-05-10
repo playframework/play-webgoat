@@ -12,6 +12,9 @@ jobs:
   test:
     strategy:
       fail-fast: false
+      matrix:
+        java: [8, 11]
+        scala: [2.12.13, 2.13.5]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -19,7 +22,7 @@ jobs:
     - uses: actions/setup-java@v2
       with:
         distribution: adopt
-        java-version: 8
+        java-version: ${{matrix.java}}
 
     - uses: actions/cache@v2
       env:
@@ -63,13 +66,13 @@ jobs:
 
     - name: Test
       run: |
-        sbt compile
-        rm -f target/vulnerabilities-actual.txt
+        sbt ++${{matrix.scala}} compile
+        rm -f target/vulnerabilities-actual-${{matrix.scala}}.txt
         ./Fortify/Fortify_SCA_and_Apps_20.2.0/bin/sourceanalyzer \
           -b play-webgoat \
           -logfile target/scan.log \
           -scan \
-          | tail -n +4 > target/vulnerabilities-actual.txt
+          | tail -n +4 > target/vulnerabilities-actual-${{matrix.scala}}.txt
         cat target/scan.log
-        sum vulnerabilities.txt target/vulnerabilities-actual.txt
-        diff -u vulnerabilities.txt target/vulnerabilities-actual.txt
+        sum vulnerabilities-${{matrix.scala}}.txt target/vulnerabilities-actual-${{matrix.scala}}.txt
+        diff -u vulnerabilities-${{matrix.scala}}.txt target/vulnerabilities-actual-${{matrix.scala}}.txt
