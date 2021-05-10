@@ -2,7 +2,7 @@
 
 @main("Welcome to Play") {
 
-    @helper.form(routes.HomeController.attackerConstraintForm()) {
+    @helper.form(routes.HomeController.attackerConstraintForm) {
         @if(form.hasGlobalErrors) {
             <ul>
             @for(error <- form.globalErrors) {

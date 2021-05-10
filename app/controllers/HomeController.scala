@@ -20,18 +20,18 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
        <html>
          <body>
            <ul>
-             <li><a href="${routes.HomeController.attackerQuerySimple()}">attackerQuerySimple</a></li>
-             <li><a href="${routes.HomeController.attackerQueryPatternMatching()}">attackerQueryPatternMatching</a></li>
-             <li><a href="${routes.HomeController.attackerQuery()}">attackerQuery</a></li>
+             <li><a href="${routes.HomeController.attackerQuerySimple}">attackerQuerySimple</a></li>
+             <li><a href="${routes.HomeController.attackerQueryPatternMatching}">attackerQueryPatternMatching</a></li>
+             <li><a href="${routes.HomeController.attackerQuery}">attackerQuery</a></li>
              <li><a href="${routes.HomeController.attackerRouteControlledQuery("foo")}">attackerRouteControlledQuery</a></li>
              <li><a href="${routes.HomeController.attackerRouteControlledPath("foo")}">attackerRouteControlledPath</a></li>
-             <li><a href="${routes.HomeController.attackerCookie()}">attackerCookie</a></li>
-             <li><a href="${routes.HomeController.attackerHeader()}">attackerHeader</a></li>
-             <li><a href="${routes.HomeController.attackerFormInput()}">attackerFormInput</a></li>
-             <li><a href="${routes.HomeController.attackerFlash()}">attackerFlash</a></li>
-             <li><a href="${routes.HomeController.constraintForm()}">constraintForm</a></li>
-             <li><a href="${routes.HomeController.attackerSSRF()}">attackerSSRF</a></li>
-             <li><a href="${routes.HomeController.attackerCustomBodyParser()}">attackerCustomBodyParser</a></li>
+             <li><a href="${routes.HomeController.attackerCookie}">attackerCookie</a></li>
+             <li><a href="${routes.HomeController.attackerHeader}">attackerHeader</a></li>
+             <li><a href="${routes.HomeController.attackerFormInput}">attackerFormInput</a></li>
+             <li><a href="${routes.HomeController.attackerFlash}">attackerFlash</a></li>
+             <li><a href="${routes.HomeController.constraintForm}">constraintForm</a></li>
+             <li><a href="${routes.HomeController.attackerSSRF}">attackerSSRF</a></li>
+             <li><a href="${routes.HomeController.attackerCustomBodyParser}">attackerCustomBodyParser</a></li>
            </ul>
          </body>
        </html>
