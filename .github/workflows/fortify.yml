@@ -44,10 +44,6 @@ jobs:
         mkdir -p ~/.lightbend
         echo "$LIGHTBEND_LICENSE" > ~/.lightbend/license
         echo "$FORTIFY_LICENSE" > fortify.license
-        echo 'resolvers += "lightbend-commercial-releases" at' > lightbend.sbt
-        echo -n '  "https://repo.lightbend.com/pass/' >> lightbend.sbt
-        echo -n ${{secrets.LIGHTBEND_REPO_PASS}} >> lightbend.sbt
-        echo '/commercial-releases"' >> lightbend.sbt
 
     # The easiest way I could think of to make the Fortify installer available to CI
     # was to attach it as a release asset to a tag in a private repo.
