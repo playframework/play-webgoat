@@ -1,10 +1,6 @@
-// it is assumed you have a file in `~/.sbt/1.0`, or that you edit this file,
-// in order to be able to resolve the plugin
-
 // enable the plugin
 addCompilerPlugin(
-  "com.lightbend" %% "scala-fortify" % "1.0.20"
-    classifier "assembly" cross CrossVersion.patch)
+  "com.lightbend" %% "scala-fortify" % "1.0.21-RC1" cross CrossVersion.patch)
 
 // configure the plugin
 scalacOptions ++= Seq(
