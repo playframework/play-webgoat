@@ -8,7 +8,7 @@ scalaVersion := crossScalaVersions.value.head // tc-skip
 
 libraryDependencies ++= Seq(guice, ws)
 scalacOptions ++= Seq(
-  "-feature", "-unchecked", "-deprecation", "-Werror",
+  "-feature", "-unchecked", "-deprecation", "-Xfatal-warnings",
   // "unused" is too fragile w/ Twirl, routes file
   "-Xlint:-unused"
 )
