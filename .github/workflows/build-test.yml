@@ -14,7 +14,7 @@ concurrency:
 jobs:
   tests:
     name: Tests
-    uses: playframework/.github/.github/workflows/sbt-matrix.yml@update-coursier
+    uses: playframework/.github/.github/workflows/sbt-matrix.yml@v1
     with: # Should be sync with Mergify conditions (.mergify.yml)
       java: >-
         [ "17", "11", "8" ]
