@@ -1,25 +1,23 @@
-name: test
+name: Check
+
 on:
   push:
     branches:
       - 2.8.x
   pull_request:
+
+concurrency:
+  # Only run once for latest commit per ref and cancel other (previous) runs.
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
-    strategy:
-      fail-fast: false
-      matrix:
-        java: [8, 11, 17]
-        scala: [2.12.15, 2.13.8]
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - uses: coursier/cache-action@v6
-    - uses: actions/setup-java@v2
-      with:
-        distribution: temurin
-        java-version: ${{matrix.java}}
-    - name: Test
-      run: sbt ++${{matrix.scala}} test
+  tests:
+    name: Tests
+    uses: playframework/.github/.github/workflows/sbt-matrix.yml@v1
+    with: # Should be sync with Mergify conditions (.mergify.yml)
+      java: >-
+        [ "17", "11", "8" ]
+      scala: >-
+        [ "2.12.15", "2.13.8" ]
+      cmd: sbt ++$SCALA_VERSION test
