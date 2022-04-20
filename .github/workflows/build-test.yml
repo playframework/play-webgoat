@@ -1,0 +1,29 @@
+name: Check
+
+on:
+  push:
+    branches:
+      - 2.8.x
+  pull_request:
+
+concurrency:
+  # Only run once for latest commit per ref and cancel other (previous) runs.
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Tests
+    uses: playframework/.github/.github/workflows/sbt-matrix.yml@v1
+    with:
+      java: >-
+        [ "17", "11", "8" ]
+      scala: >-
+        [ "2.12.15", "2.13.8" ]
+      cmd: sbt ++$SCALA_VERSION test
+
+  finish:
+    name: Finish
+    needs: # Should be last
+      - "tests"
+    uses: playframework/.github/.github/workflows/rtm.yml@v1
