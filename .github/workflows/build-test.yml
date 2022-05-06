@@ -14,16 +14,14 @@ concurrency:
 jobs:
   tests:
     name: Tests
-    uses: playframework/.github/.github/workflows/sbt-matrix.yml@v1
+    uses: playframework/.github/.github/workflows/cmd.yml@v2
     with:
-      java: >-
-        [ "17", "11", "8" ]
-      scala: >-
-        [ "2.12.15", "2.13.8" ]
-      cmd: sbt ++$SCALA_VERSION test
+      java: 17, 11, 8
+      scala: 2.12.15, 2.13.8
+      cmd: sbt ++$MATRIX_SCALA test
 
   finish:
     name: Finish
     needs: # Should be last
       - "tests"
-    uses: playframework/.github/.github/workflows/rtm.yml@v1
+    uses: playframework/.github/.github/workflows/rtm.yml@v2
