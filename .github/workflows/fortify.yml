@@ -60,6 +60,8 @@ jobs:
           ./Fortify/Fortify_SCA_and_Apps_22.1.0/bin/fortifyupdate
           # otherwise we get some false positives from sample files
           rm -rf ./Fortify/Fortify_SCA_and_Apps_22.1.0/Samples
+          # otherwise we get some false positives on this file
+          rm -f ./Fortify/Fortify_SCA_and_Apps_22.1.0/jre/conf/management/management.properties
         fi
 
     - name: Test
