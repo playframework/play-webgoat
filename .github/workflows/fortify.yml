@@ -32,7 +32,7 @@ jobs:
         key: fortify-22.1.0
 
     # https://github.com/gruntwork-io/fetch
-
+    - uses: Homebrew/actions/setup-homebrew@master
     - name: Install Fetch
       run: brew install fetch
 
