@@ -62,8 +62,9 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
     val address = request.cookies.get("address").get.value
 
     address match {
-      // [RuleTest] Command Injection 
+      // [RuleTest] Command Injection
       case addressRE(address, port) => s"ping ${address}".!
+      case _ =>
     }
     // [RuleTest] Cross-Site Scripting: Reflected
     Ok(Html(s"Host ${address} pinged")) as HTML

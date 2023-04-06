@@ -11,3 +11,7 @@ scalacOptions ++= Seq(
   // "-unchecked", "-deprecation" // Set by Play already
   "-feature", "-Werror",
 )
+scalacOptions ++= (CrossVersion.partialVersion(scalaVersion.value) match {
+  case Some((2, _)) => Seq("-Xlint:-unused,_")
+  case _ => Seq()
+})
