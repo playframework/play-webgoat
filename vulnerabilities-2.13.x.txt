@@ -154,7 +154,6 @@ app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
 [EB2255E14A58F1EA53655CCF5E4A9331 : low : Password Management : Password in Comment : configuration ]
     Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(226)
 
-
 [A6529A7EBCDA4CEA93D49376FA2E103A : low : Code Correctness : Non-Static Inner Class Implements Serializable : structural ]
     app/controllers/HomeController.scala(239)
 
