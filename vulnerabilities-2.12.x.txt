@@ -136,6 +136,24 @@ app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
     app/controllers/HomeController.scala(202) :  ->controllers.HomeController$anonfun$twirlXSS$2.apply(0)
     app/controllers/HomeController.scala(202) : <- RequestHeader.getQueryString(return)
 
+[7D28392534D22625D25CE2901CD24E92 : critical : Password Management : Hardcoded Password : configuration ]
+    Fortify/Fortify_SCA_23.1.1/Core/go/src/net/http/request.go(954)
+
+[16E724BE48E9A475B158F8B7BB09E34B : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(108)
+
+[7D60AB57B5E6F97588B47E1727BBDF01 : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(110)
+
+[CD014C42A1C713E32626350CE46374E1 : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(210)
+
+[FFC84141D7968A38A4E2DD0AE4D63023 : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(222)
+
+[EB2255E14A58F1EA53655CCF5E4A9331 : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(226)
+
 [A6529A7EBCDA4CEA93D49376FA2E103A : low : Code Correctness : Non-Static Inner Class Implements Serializable : structural ]
     app/controllers/HomeController.scala(239)
 
