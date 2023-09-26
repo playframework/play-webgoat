@@ -1,6 +1,6 @@
 // enable the plugin
 addCompilerPlugin(
-  "com.lightbend" %% "scala-fortify" % "1.0.24"
+  "com.lightbend" %% "scala-fortify" % "1.0.25"
     cross CrossVersion.patch)
 
 // configure the plugin
