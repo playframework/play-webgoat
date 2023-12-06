@@ -8,9 +8,9 @@ app/controllers/HomeController.scala(53) :  ->Result.as(this)
     app/controllers/HomeController.scala(45) : <- RequestHeader.getQueryString(return)
 
 [33128A11344ABDEF50E2F7D8D7146DB1 : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(69) :  ->Result.as(this)
-    app/controllers/HomeController.scala(69) : <->Results$Status.apply(0->return)
-    app/controllers/HomeController.scala(69) : <->Html.apply(0->return)
+app/controllers/HomeController.scala(70) :  ->Result.as(this)
+    app/controllers/HomeController.scala(70) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(70) : <->Html.apply(0->return)
     app/controllers/HomeController.scala(62) : <=> (address)
     app/controllers/HomeController.scala(62) : <->Cookie.value(this->return)
     app/controllers/HomeController.scala(62) : <->Option.get(this->return)
@@ -18,90 +18,90 @@ app/controllers/HomeController.scala(69) :  ->Result.as(this)
     app/controllers/HomeController.scala(62) : <- RequestHeader.cookies(return)
 
 [5B7D0DB4D614ADB01C888ABFA9BED320 : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(84) :  ->Result.as(this)
-    app/controllers/HomeController.scala(77) : <=> (result)
-    app/controllers/HomeController.scala(77) : <->Option.getOrElse(this->return)
-        app/controllers/HomeController.scala(81) : return
-        app/controllers/HomeController.scala(81) : <->Results$Status.apply(0->return)
-        app/controllers/HomeController.scala(81) : <->Html.apply(0->return)
-    app/controllers/HomeController.scala(77) : <->controllers.HomeController$anonfun$attackerQuery$2.apply(0->return)
-    app/controllers/HomeController.scala(77) : <- RequestHeader.getQueryString(return)
+app/controllers/HomeController.scala(85) :  ->Result.as(this)
+    app/controllers/HomeController.scala(78) : <=> (result)
+    app/controllers/HomeController.scala(78) : <->Option.getOrElse(this->return)
+        app/controllers/HomeController.scala(82) : return
+        app/controllers/HomeController.scala(82) : <->Results$Status.apply(0->return)
+        app/controllers/HomeController.scala(82) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(78) : <->controllers.HomeController$anonfun$attackerQuery$2.apply(0->return)
+    app/controllers/HomeController.scala(78) : <- RequestHeader.getQueryString(return)
 
 [B09BD522BAB03D03138116E5C24A332E : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(91) :  ->Result.as(this)
-    app/controllers/HomeController.scala(91) : <->Results$Status.apply(0->return)
-    app/controllers/HomeController.scala(91) : <->Html.apply(0->return)
-    app/controllers/HomeController.scala(90) :  ->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.apply(this)
-        app/controllers/HomeController.scala(90) : <=> (this)
-    app/controllers/HomeController.scala(90) : <->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.innerinit^(0->this)
-    app/controllers/HomeController.scala(90) :  ->HomeController.attackerRouteControlledQuery(0)
+app/controllers/HomeController.scala(92) :  ->Result.as(this)
+    app/controllers/HomeController.scala(92) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(92) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(91) :  ->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.apply(this)
+        app/controllers/HomeController.scala(91) : <=> (this)
+    app/controllers/HomeController.scala(91) : <->controllers.HomeController$anonfun$attackerRouteControlledQuery$1.innerinit^(0->this)
+    app/controllers/HomeController.scala(91) :  ->HomeController.attackerRouteControlledQuery(0)
 
 [76157C51B8F7E2674323F2BBE0459F81 : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(98) :  ->Result.as(this)
-    app/controllers/HomeController.scala(98) : <->Results$Status.apply(0->return)
-    app/controllers/HomeController.scala(98) : <->Html.apply(0->return)
-    app/controllers/HomeController.scala(97) :  ->controllers.HomeController$anonfun$attackerRouteControlledPath$1.apply(this)
-        app/controllers/HomeController.scala(97) : <=> (this)
-    app/controllers/HomeController.scala(97) : <->controllers.HomeController$anonfun$attackerRouteControlledPath$1.innerinit^(0->this)
-    app/controllers/HomeController.scala(97) :  ->HomeController.attackerRouteControlledPath(0)
+app/controllers/HomeController.scala(99) :  ->Result.as(this)
+    app/controllers/HomeController.scala(99) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(99) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(98) :  ->controllers.HomeController$anonfun$attackerRouteControlledPath$1.apply(this)
+        app/controllers/HomeController.scala(98) : <=> (this)
+    app/controllers/HomeController.scala(98) : <->controllers.HomeController$anonfun$attackerRouteControlledPath$1.innerinit^(0->this)
+    app/controllers/HomeController.scala(98) :  ->HomeController.attackerRouteControlledPath(0)
 
 [8EE69802E6FCE8A1A4739050180C0BBC : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(111) :  ->Result.as(this)
-    app/controllers/HomeController.scala(106) : <=> (result)
-    app/controllers/HomeController.scala(106) : <->Option.getOrElse(this->return)
-        app/controllers/HomeController.scala(108) : return
-        app/controllers/HomeController.scala(108) : <->Results$Status.apply(0->return)
-        app/controllers/HomeController.scala(108) : <->Html.apply(0->return)
-        app/controllers/HomeController.scala(108) : <->Cookie.value(this->return)
-    app/controllers/HomeController.scala(106) : <->controllers.HomeController$anonfun$attackerCookie$2.apply(0->return)
-    app/controllers/HomeController.scala(106) : <->Cookies.get(this->return)
-    app/controllers/HomeController.scala(106) : <- RequestHeader.cookies(return)
+app/controllers/HomeController.scala(112) :  ->Result.as(this)
+    app/controllers/HomeController.scala(107) : <=> (result)
+    app/controllers/HomeController.scala(107) : <->Option.getOrElse(this->return)
+        app/controllers/HomeController.scala(109) : return
+        app/controllers/HomeController.scala(109) : <->Results$Status.apply(0->return)
+        app/controllers/HomeController.scala(109) : <->Html.apply(0->return)
+        app/controllers/HomeController.scala(109) : <->Cookie.value(this->return)
+    app/controllers/HomeController.scala(107) : <->controllers.HomeController$anonfun$attackerCookie$2.apply(0->return)
+    app/controllers/HomeController.scala(107) : <->Cookies.get(this->return)
+    app/controllers/HomeController.scala(107) : <- RequestHeader.cookies(return)
 
 [7BB2A2B92BB725FFAE8CC580EC07547E : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(125) :  ->Result.as(this)
-    app/controllers/HomeController.scala(120) : <=> (result)
-    app/controllers/HomeController.scala(120) : <->Option.getOrElse(this->return)
-        app/controllers/HomeController.scala(122) : return
-        app/controllers/HomeController.scala(122) : <->Results$Status.apply(0->return)
-    app/controllers/HomeController.scala(120) : <->controllers.HomeController$anonfun$attackerHeader$2.apply(0->return)
-    app/controllers/HomeController.scala(120) : <->Headers.get(this->return)
-    app/controllers/HomeController.scala(120) : <- WrappedRequest.headers(return)
+app/controllers/HomeController.scala(126) :  ->Result.as(this)
+    app/controllers/HomeController.scala(121) : <=> (result)
+    app/controllers/HomeController.scala(121) : <->Option.getOrElse(this->return)
+        app/controllers/HomeController.scala(123) : return
+        app/controllers/HomeController.scala(123) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(121) : <->controllers.HomeController$anonfun$attackerHeader$2.apply(0->return)
+    app/controllers/HomeController.scala(121) : <->Headers.get(this->return)
+    app/controllers/HomeController.scala(121) : <- WrappedRequest.headers(return)
 
 [39721F0AF3B5131A3B3035F9317C4CD9 : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(150) :  ->Result.as(this)
-    app/controllers/HomeController.scala(150) : <->Results$Status.apply(0->return)
-    app/controllers/HomeController.scala(150) : <->Html.apply(0->return)
-    app/controllers/HomeController.scala(149) : <=> (command)
-        app/controllers/HomeController.scala(315) : return (this.name)
-    app/controllers/HomeController.scala(149) : <->FormData$UserData.name(this.name->return)
-    app/controllers/HomeController.scala(147) :  ->controllers.HomeController$anonfun$attackerFormInput$3.apply(0.name)
-    app/controllers/HomeController.scala(146) : <=> (boundForm)
-    app/controllers/HomeController.scala(146) : <- Form.bindFromRequest(return)
+app/controllers/HomeController.scala(151) :  ->Result.as(this)
+    app/controllers/HomeController.scala(151) : <->Results$Status.apply(0->return)
+    app/controllers/HomeController.scala(151) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(150) : <=> (command)
+        app/controllers/HomeController.scala(316) : return (this.name)
+    app/controllers/HomeController.scala(150) : <->FormData$UserData.name(this.name->return)
+    app/controllers/HomeController.scala(148) :  ->controllers.HomeController$anonfun$attackerFormInput$3.apply(0.name)
+    app/controllers/HomeController.scala(147) : <=> (boundForm)
+    app/controllers/HomeController.scala(147) : <- Form.bindFromRequest(return)
 
 [E6CC52318B0B2200473A13FE2F3944AE : critical : Cross-Site Scripting : Reflected : dataflow ]
-app/controllers/HomeController.scala(169) :  ->Result.as(this)
-    app/controllers/HomeController.scala(164) : <=> (result)
-    app/controllers/HomeController.scala(164) : <->Option.getOrElse(this->return)
-        app/controllers/HomeController.scala(166) : return
-        app/controllers/HomeController.scala(166) : <->Results$Status.apply(0->return)
-        app/controllers/HomeController.scala(166) : <->Html.apply(0->return)
-    app/controllers/HomeController.scala(164) : <->controllers.HomeController$anonfun$attackerFlash$2.apply(0->return)
-    app/controllers/HomeController.scala(164) : <->Flash.get(this->return)
-    app/controllers/HomeController.scala(164) : <- RequestHeader.flash(return)
+app/controllers/HomeController.scala(170) :  ->Result.as(this)
+    app/controllers/HomeController.scala(165) : <=> (result)
+    app/controllers/HomeController.scala(165) : <->Option.getOrElse(this->return)
+        app/controllers/HomeController.scala(167) : return
+        app/controllers/HomeController.scala(167) : <->Results$Status.apply(0->return)
+        app/controllers/HomeController.scala(167) : <->Html.apply(0->return)
+    app/controllers/HomeController.scala(165) : <->controllers.HomeController$anonfun$attackerFlash$2.apply(0->return)
+    app/controllers/HomeController.scala(165) : <->Flash.get(this->return)
+    app/controllers/HomeController.scala(165) : <- RequestHeader.flash(return)
 
 [8D691E21A8DD2904FFB9D9C86B76D022 : high : Server-Side Request Forgery : dataflow ]
-app/controllers/HomeController.scala(216) :  ->WSClient.url(0)
-    app/controllers/HomeController.scala(214) : <=> (attackerUrl)
-    app/controllers/HomeController.scala(214) : <->Option.getOrElse(this->return)
-    app/controllers/HomeController.scala(214) : <->AnyContent.asText(this->return)
-    app/controllers/HomeController.scala(214) : <- WrappedRequest.body(return)
+app/controllers/HomeController.scala(217) :  ->WSClient.url(0)
+    app/controllers/HomeController.scala(215) : <=> (attackerUrl)
+    app/controllers/HomeController.scala(215) : <->Option.getOrElse(this->return)
+    app/controllers/HomeController.scala(215) : <->AnyContent.asText(this->return)
+    app/controllers/HomeController.scala(215) : <- WrappedRequest.body(return)
 
 [2D3C1DE38D160DC1111779E2B1CB792A : critical : Open Redirect : dataflow ]
-app/controllers/HomeController.scala(135) :  ->Results.Redirect(0)
-    app/controllers/HomeController.scala(133) : <=> (attackerLocation)
-    app/controllers/HomeController.scala(133) : <->Some.value(this->return)
-    app/controllers/HomeController.scala(132) : <->Headers.get(this->return)
-    app/controllers/HomeController.scala(132) : <- WrappedRequest.headers(return)
+app/controllers/HomeController.scala(136) :  ->Results.Redirect(0)
+    app/controllers/HomeController.scala(134) : <=> (attackerLocation)
+    app/controllers/HomeController.scala(134) : <->Some.value(this->return)
+    app/controllers/HomeController.scala(133) : <->Headers.get(this->return)
+    app/controllers/HomeController.scala(133) : <- WrappedRequest.headers(return)
 
 [6D5A6D191A67348160822F3A70E73B41 : critical : Command Injection : dataflow ]
 app/controllers/HomeController.scala(48) :  ->ProcessBuilder.!(this)
@@ -124,17 +124,17 @@ app/controllers/HomeController.scala(66) :  ->ProcessBuilder.!(this)
     app/controllers/HomeController.scala(62) : <- RequestHeader.cookies(return)
 
 [7539909C6B48052B774D20F0F9D4B833 : critical : Command Injection : dataflow ]
-app/controllers/HomeController.scala(230) :  ->ProcessBuilder.!!(this)
-    app/controllers/HomeController.scala(230) : <->ProcessImplicits.stringToProcess(0->return)
-    app/controllers/HomeController.scala(228) :  ->controllers.HomeController$anonfun$attackerCustomBodyParser$2.apply(0)
-    app/controllers/HomeController.scala(228) : <- RequestHeader.getQueryString(return)
+app/controllers/HomeController.scala(231) :  ->ProcessBuilder.!!(this)
+    app/controllers/HomeController.scala(231) : <->ProcessImplicits.stringToProcess(0->return)
+    app/controllers/HomeController.scala(229) :  ->controllers.HomeController$anonfun$attackerCustomBodyParser$2.apply(0)
+    app/controllers/HomeController.scala(229) : <- RequestHeader.getQueryString(return)
 
 [7AA03F985E923884F14D7CCCEBCAFC97 : critical : Cross-Site Scripting : Reflected : dataflow ]
 app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
     app/views/xss.scala.html(3) : <->Html.apply(0->return)
-    app/controllers/HomeController.scala(201) :  ->xss.apply(0)
-    app/controllers/HomeController.scala(202) :  ->controllers.HomeController$anonfun$twirlXSS$2.apply(0)
-    app/controllers/HomeController.scala(202) : <- RequestHeader.getQueryString(return)
+    app/controllers/HomeController.scala(202) :  ->xss.apply(0)
+    app/controllers/HomeController.scala(203) :  ->controllers.HomeController$anonfun$twirlXSS$2.apply(0)
+    app/controllers/HomeController.scala(203) : <- RequestHeader.getQueryString(return)
 
 [7D28392534D22625D25CE2901CD24E92 : critical : Password Management : Hardcoded Password : configuration ]
     Fortify/Fortify_SCA_23.1.1/Core/go/src/net/http/request.go(954)
@@ -155,25 +155,25 @@ app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
     Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(226)
 
 [A6529A7EBCDA4CEA93D49376FA2E103A : low : Code Correctness : Non-Static Inner Class Implements Serializable : structural ]
-    app/controllers/HomeController.scala(239)
+    app/controllers/HomeController.scala(240)
 
 [A054B8CF843466C9C08F7C31A431AF62 : low : Missing Form Field Constraints : structural ]
-    app/controllers/HomeController.scala(277)
+    app/controllers/HomeController.scala(278)
 
 [B2934DA20E3AD7BB839D019DDB7EF610 : low : Missing Form Field Validation : structural ]
-    app/controllers/HomeController.scala(277)
+    app/controllers/HomeController.scala(278)
 
 [3123D430AEB62E4FF2BB7F6A775DE9F4 : low : Missing Form Field Constraints : structural ]
-    app/controllers/HomeController.scala(277)
+    app/controllers/HomeController.scala(278)
 
 [EF0E143E15EB85C0226B44014A79E298 : low : Missing Form Field Validation : structural ]
-    app/controllers/HomeController.scala(277)
+    app/controllers/HomeController.scala(278)
 
 [3F112D268BC9CC49AEA7DD1B65D2543E : low : Missing Form Field Constraints : structural ]
-    app/controllers/HomeController.scala(284)
+    app/controllers/HomeController.scala(285)
 
 [1D7A640F7D4C395E44AE1B510CA5FA05 : low : Missing Form Field Validation : structural ]
-    app/controllers/HomeController.scala(284)
+    app/controllers/HomeController.scala(285)
 
 [00132A9E4889966ADB911CACDED783FE : low : Missing Form Field Constraints : structural ]
-    app/controllers/HomeController.scala(284)
+    app/controllers/HomeController.scala(285)

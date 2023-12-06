@@ -136,6 +136,24 @@ target/scala-3.3.1/twirl/main/views/html/xss.template.scala(28) :  ->BaseScalaTe
     app/controllers/HomeController.scala(201) :  ->controllers.HomeControllertwirlXSS$$anonfun$1$$anonfun$1.apply(0)
     app/controllers/HomeController.scala(201) : <- RequestHeader.getQueryString(return)
 
+[7D28392534D22625D25CE2901CD24E92 : critical : Password Management : Hardcoded Password : configuration ]
+    Fortify/Fortify_SCA_23.1.1/Core/go/src/net/http/request.go(954)
+
+[16E724BE48E9A475B158F8B7BB09E34B : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(108)
+
+[7D60AB57B5E6F97588B47E1727BBDF01 : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(110)
+
+[CD014C42A1C713E32626350CE46374E1 : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(210)
+
+[FFC84141D7968A38A4E2DD0AE4D63023 : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(222)
+
+[EB2255E14A58F1EA53655CCF5E4A9331 : low : Password Management : Password in Comment : configuration ]
+    Fortify/Fortify_SCA_23.1.1/jre/conf/management/management.properties(226)
+
 [1810A9D7ABBD32A9C113C3F821AF3E2A : low : Poor Style : Value Never Read : structural ]
     app/controllers/HomeController.scala(66)
     Variable: port [app/controllers/HomeController.scala(66)]
