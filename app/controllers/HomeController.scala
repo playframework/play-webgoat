@@ -15,7 +15,7 @@ import scala.sys.process._
  */
 class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
 
-  def index = Action { implicit request  =>
+  def index: Action[AnyContent] = Action { implicit request  =>
      Ok(Html(s"""
        <html>
          <body>
@@ -41,7 +41,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * Command injection & XSS directly from directly called query parameter
    */
-  def attackerQuerySimple = Action { implicit request  =>
+  def attackerQuerySimple: Action[AnyContent] = Action { implicit request  =>
     val address = request.getQueryString("address")
 
     // [RuleTest] Command Injection 
@@ -56,14 +56,15 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * Command injection & XSS directly from directly called query parameter
    */
-  def attackerQueryPatternMatching = Action { implicit request  =>
+  def attackerQueryPatternMatching: Action[AnyContent] = Action { implicit request  =>
 
     val addressRE= "(.*):(\\d+)".r
     val address = request.cookies.get("address").get.value
 
     address match {
-      // [RuleTest] Command Injection 
+      // [RuleTest] Command Injection
       case addressRE(address, port) => s"ping ${address}".!
+      case _ =>
     }
     // [RuleTest] Cross-Site Scripting: Reflected
     Ok(Html(s"Host ${address} pinged")) as HTML
@@ -72,7 +73,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * XSS directly from directly called query parameter
    */
-  def attackerQuery = Action { implicit request  =>
+  def attackerQuery: Action[AnyContent] = Action { implicit request  =>
 
     val result = request.getQueryString("attacker").map { command =>
       // Render the command directly from query parameter, this is the obvious example
@@ -87,21 +88,21 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * XSS through query string parsed by generated router from conf/routes file.
    */
-  def attackerRouteControlledQuery(attacker: String) = Action { implicit request =>
+  def attackerRouteControlledQuery(attacker: String): Action[AnyContent] = Action { implicit request =>
     Ok(Html(attacker)) as HTML
   }
 
   /**
    * XSS through path binding parsed by generated router from conf/routes file.
    */
-  def attackerRouteControlledPath(attacker: String) = Action { implicit request =>
+  def attackerRouteControlledPath(attacker: String): Action[AnyContent] = Action { implicit request =>
     Ok(Html(attacker)) as HTML
   }
 
   /**
    * XSS through attacker controlled info in cookie
    */
-  def attackerCookie = Action { implicit request =>
+  def attackerCookie: Action[AnyContent] = Action { implicit request =>
     // User cookies have no message authentication by default, so an attacker can pass in a cookie
     val result = request.cookies.get("attacker").map { attackerCookie =>
       // Render the command
@@ -114,7 +115,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * XSS through attacker controlled header
    */
-  def attackerHeader = Action { implicit request =>
+  def attackerHeader: Action[AnyContent] = Action { implicit request =>
     // Request headers are also unvalidated by default.
     // The usual example is pulling the Location header to do an unsafe redirect
     val result = request.headers.get("Attacker").map { command =>
@@ -128,7 +129,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * Unbound redirect through Header
    */
-  def attackerOpenRedirect = Action { implicit request =>
+  def attackerOpenRedirect: Action[AnyContent] = Action { implicit request =>
     request.headers.get("Location") match {
       case Some(attackerLocation) =>
         // Also see https://github.com/playframework/playframework/issues/6450
@@ -142,7 +143,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * XSS through URL encoded form input.
    */
-  def attackerFormInput = Action { implicit request =>
+  def attackerFormInput: Action[AnyContent] = Action { implicit request =>
     val boundForm = FormData.form.bindFromRequest()
     boundForm.fold(badData => BadRequest("Bad form binding"), userData => {
       // Render the attacker command as HTML
@@ -154,7 +155,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * XSS through attacker controlled flash cookie.
    */
-  def attackerFlash = Action { implicit request =>
+  def attackerFlash: Action[AnyContent] = Action { implicit request =>
     // Flash is usually handled with
     // Redirect(routes.HomeController.attackerFlash()).flashing("info" -> "Some text")
     // but if the user puts HTML in it and then renders it,
@@ -170,14 +171,14 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   }
 
   // Render a boring form
-  def constraintForm = Action { implicit request  =>
+  def constraintForm: Action[AnyContent] = Action { implicit request  =>
     Ok(views.html.index(FormData.customForm))
   }
 
   /**
    * XSS through custom constraint with user input
    */
-  def attackerConstraintForm = Action { implicit request =>
+  def attackerConstraintForm: Action[AnyContent] = Action { implicit request =>
 
     // Bind a form that uses the i18n messages api, but the user input is reflected in the error message
     // Play takes a raw string here and escapes everything, but it may be possible to escape this...
@@ -196,7 +197,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * XSS involving Twirl template
    */
-  def twirlXSS = Action { implicit request  =>
+  def twirlXSS = Action { implicit request: MessagesRequest[AnyContent] =>
     request.getQueryString("xss").map { payload =>
       Ok(views.html.xss(payload))
     }.getOrElse(Ok("Missing xss param"))
@@ -205,7 +206,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * SSRF attacks done with Play WS
    */
-  def attackerSSRF = Action.async { implicit request  =>
+  def attackerSSRF: Action[AnyContent] = Action.async { implicit request  =>
     // Play WS does not have a whitelist of valid URLs, so if you're calling it
     // directly with user input, you're open to SSRF.  The best thing to do is
     // to place WS access in a wrapper, i.e.
@@ -222,7 +223,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
   /**
    * Command injection with custom body parser
    */
-  def attackerCustomBodyParser = Action(bodyParser = BodyParser { header: RequestHeader =>
+  def attackerCustomBodyParser: Action[Foo] = Action(bodyParser = BodyParser { (header: RequestHeader) => {
     // request header is a request without a body
     // http://localhost:9000/attackerCustomBodyParser?address=/etc/passwd
     val result = header.getQueryString("filename").map { filename =>
@@ -231,7 +232,7 @@ class HomeController @Inject()(ws: WSClient, cc: MessagesControllerComponents)(i
     }.getOrElse("No filename found!")
 
     Accumulator.done(Right(Foo(bar = result)))
-  }) { implicit request: Request[Foo] =>
+  }}) { implicit request: Request[Foo] =>
     val foo: Foo = request.body
     Ok(foo.bar)
   }
@@ -313,4 +314,7 @@ object FormData {
 
 
   case class UserData(name: String, age:Int)
+  object UserData {
+    def unapply(u: UserData): Option[(String, Int)] = Some((u.name, u.age))
+  }
 }
