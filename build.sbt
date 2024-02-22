@@ -3,7 +3,7 @@ lazy val `play-webgoat` = (project in file(".")).enablePlugins(PlayScala)
 name := "play-webgoat"
 version := "1.0"
 
-crossScalaVersions := Seq("2.13.12", "3.3.1")
+crossScalaVersions := Seq("2.13.13", "3.3.2")
 scalaVersion := crossScalaVersions.value.head // tc-skip
 
 libraryDependencies ++= Seq(guice, ws)
@@ -12,6 +12,6 @@ scalacOptions ++= Seq(
   "-feature", "-Werror",
 )
 scalacOptions ++= (CrossVersion.partialVersion(scalaVersion.value) match {
-  case Some((2, _)) => Seq("-Xlint:-unused,_")
+  case Some((2, _)) => Seq("-Xlint:-unused,-named-booleans,_")
   case _ => Seq()
 })
