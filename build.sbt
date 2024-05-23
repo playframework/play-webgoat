@@ -12,6 +12,6 @@ scalacOptions ++= Seq(
   "-feature", "-Werror",
 )
 scalacOptions ++= (CrossVersion.partialVersion(scalaVersion.value) match {
-  case Some((2, _)) => Seq("-Xlint:-unused,-named-booleans,_")
+  case Some((2, _)) => Seq("-Xlint:-unused,_")
   case _ => Seq()
 })
