@@ -181,8 +181,3 @@ target/scala-3.3.3/twirl/main/views/html/xss.template.scala(28) :  ->BaseScalaTe
 
 [00132A9E4889966ADB911CACDED783FE : low : Missing Form Field Constraints : structural ]
     app/controllers/HomeController.scala(285)
-
-[C997F7BB94E70A739A5522B291E17A57 : low : Code Correctness : Constructor Invokes Overridable Function : structural ]
-    target/scala-3.3.3/routes/main/router/Routes.scala(37)
-    Function: router.Routes.Routes [target/scala-3.3.3/routes/main/router/Routes.scala(13)]
-        Function: router.Routes.prefix [target/scala-3.3.3/routes/main/router/Routes.scala(19)]
