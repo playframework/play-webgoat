@@ -139,11 +139,11 @@ app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
 [FBF442ECF0F027F34534E639687DE697 : high : Credential Management : Hardcoded API Credentials : configuration ]
     Fortify/Fortify_SCA_24.2.0/Core/go/src/cmd/link/internal/ld/pe.go(780)
 
-[16E724BE48E9A475B158F8B7BB09E34B : low : Password Management : Password in Comment : configuration ]
-    Fortify/Fortify_SCA_24.2.0/jre/conf/management/management.properties(108)
+[EE5D93256D07AFEA518ABF5920A0078E : critical : Password Management : Hardcoded Password : configuration ]
+    Fortify/Fortify_SCA_24.2.0/Core/go/src/net/http/request.go(975)
 
 [49ABB95AD7CE0B45AF738DFC88880BE3 : low : Password Management : Password in Comment : configuration ]
-     Fortify/Fortify_SCA_24.2.0/jre/conf/management/management.properties(110)
+    Fortify/Fortify_SCA_24.2.0/jre/conf/management/management.properties(110)
 
 [C21F953D2262A74D3879B2A5768A6416 : low : Password Management : Password in Comment : configuration ]
     Fortify/Fortify_SCA_24.2.0/jre/conf/management/management.properties(112)
