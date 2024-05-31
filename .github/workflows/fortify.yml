@@ -29,7 +29,7 @@ jobs:
         cache-name: fortify
       with:
         path: ./Fortify
-        key: fortify-23.1.1
+        key: fortify-24.2.0
 
     # https://github.com/gruntwork-io/fetch
     - uses: Homebrew/actions/setup-homebrew@master
@@ -50,23 +50,23 @@ jobs:
     - name: Install Fortify
       run: |
         if [[ ! -d Fortify ]] ; then
-          GITHUB_OAUTH_TOKEN=${{secrets.FORTIFY_INSTALLER_TOKEN}} fetch --repo="https://github.com/lightbend/scala-fortify" --tag="23.1.1_linux_x64" --release-asset="Fortify_SCA_23.1.1_linux_x64.run" .
-          chmod +x Fortify_SCA_23.1.1_linux_x64.run
+          GITHUB_OAUTH_TOKEN=${{secrets.FORTIFY_INSTALLER_TOKEN}} fetch --repo="https://github.com/lightbend/scala-fortify" --tag="24.2.0_linux_x64" --release-asset="Fortify_SCA_24.2.0_linux_x64.run" .
+          chmod +x Fortify_SCA_24.2.0_linux_x64.run
           mkdir Fortify
-          echo installdir=`pwd`/Fortify/Fortify_SCA_23.1.1 > Fortify_SCA_23.1.1_linux_x64.run.options
-          echo fortify_license_path=`pwd`/fortify.license >> Fortify_SCA_23.1.1_linux_x64.run.options
-          ./Fortify_SCA_23.1.1_linux_x64.run --mode unattended
+          echo installdir=`pwd`/Fortify/Fortify_SCA_24.2.0 > Fortify_SCA_24.2.0_linux_x64.run.options
+          echo fortify_license_path=`pwd`/fortify.license >> Fortify_SCA_24.2.0_linux_x64.run.options
+          ./Fortify_SCA_24.2.0_linux_x64.run --mode unattended
           # download the Scala security rules; VersionTests makes sure they're the ones we expect
-          ./Fortify/Fortify_SCA_23.1.1/bin/fortifyupdate
+          ./Fortify/Fortify_SCA_24.2.0/bin/fortifyupdate
           # otherwise we get some false positives from sample files
-          rm -rf ./Fortify/Fortify_SCA_23.1.1/Samples
+          rm -rf ./Fortify/Fortify_SCA_24.2.0/Samples
         fi
 
     - name: Test
       run: |
         sbt ++${{matrix.scala}} compile
         rm -f target/vulnerabilities-actual-${{matrix.scala}}.txt
-        ./Fortify/Fortify_SCA_23.1.1/bin/sourceanalyzer \
+        ./Fortify/Fortify_SCA_24.2.0/bin/sourceanalyzer \
           -b play-webgoat \
           -logfile target/scan.log \
           -scan \
