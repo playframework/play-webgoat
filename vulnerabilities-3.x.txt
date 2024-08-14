@@ -33,7 +33,7 @@ app/controllers/HomeController.scala(92) :  ->Result.as(this)
     app/controllers/HomeController.scala(92) : <->Html.apply(0->return)
     app/controllers/HomeController.scala(91) :  ->controllers.HomeControllerattackerRouteControlledQuery$$anonfun$1.apply(this)
         app/controllers/HomeController.scala(91) : <=> (this)
-    app/controllers/HomeController.scala(92) : <->controllers.HomeControllerattackerRouteControlledQuery$$anonfun$1.innerinit^(0->this)
+    app/controllers/HomeController.scala(91) : <->controllers.HomeControllerattackerRouteControlledQuery$$anonfun$1.innerinit^(0->this)
     app/controllers/HomeController.scala(91) :  ->HomeController.attackerRouteControlledQuery(0)
 
 [76157C51B8F7E2674323F2BBE0459F81 : critical : Cross-Site Scripting : Reflected : dataflow ]
@@ -42,7 +42,7 @@ app/controllers/HomeController.scala(99) :  ->Result.as(this)
     app/controllers/HomeController.scala(99) : <->Html.apply(0->return)
     app/controllers/HomeController.scala(98) :  ->controllers.HomeControllerattackerRouteControlledPath$$anonfun$1.apply(this)
         app/controllers/HomeController.scala(98) : <=> (this)
-    app/controllers/HomeController.scala(99) : <->controllers.HomeControllerattackerRouteControlledPath$$anonfun$1.innerinit^(0->this)
+    app/controllers/HomeController.scala(98) : <->controllers.HomeControllerattackerRouteControlledPath$$anonfun$1.innerinit^(0->this)
     app/controllers/HomeController.scala(98) :  ->HomeController.attackerRouteControlledPath(0)
 
 [3795138EC238E0F49E5A94291F0D4EB8 : critical : Cross-Site Scripting : Reflected : dataflow ]
