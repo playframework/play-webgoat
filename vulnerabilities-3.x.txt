@@ -130,8 +130,8 @@ app/controllers/HomeController.scala(231) :  ->ProcessBuilder.!!(this)
     app/controllers/HomeController.scala(229) : <- RequestHeader.getQueryString(return)
 
 [19934AF014F44D85C1841457D8ED6581 : critical : Cross-Site Scripting : Reflected : dataflow ]
-target/scala-3.5.0/twirl/main/views/html/xss.template.scala(28) :  ->BaseScalaTemplate._display_(0)
-    target/scala-3.5.0/twirl/main/views/html/xss.template.scala(28) : <->Html.apply(0->return)
+target/scala-3.5.2/twirl/main/views/html/xss.template.scala(28) :  ->BaseScalaTemplate._display_(0)
+    target/scala-3.5.2/twirl/main/views/html/xss.template.scala(28) : <->Html.apply(0->return)
     app/controllers/HomeController.scala(202) :  ->xss.apply(0)
     app/controllers/HomeController.scala(201) :  ->controllers.HomeControllertwirlXSS$$anonfun$1$$anonfun$1.apply(0)
     app/controllers/HomeController.scala(201) : <- RequestHeader.getQueryString(return)
