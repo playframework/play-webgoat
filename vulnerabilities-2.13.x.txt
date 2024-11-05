@@ -136,9 +136,6 @@ app/views/xss.scala.html(3) :  ->BaseScalaTemplate._display_(0)
     app/controllers/HomeController.scala(203) :  ->controllers.HomeController$anonfun$twirlXSS$2.apply(0)
     app/controllers/HomeController.scala(203) : <- RequestHeader.getQueryString(return)
 
-[FBF442ECF0F027F34534E639687DE697 : high : Credential Management : Hardcoded API Credentials : configuration ]
-    Fortify/Fortify_SCA_24.2.0/Core/go/src/cmd/link/internal/ld/pe.go(780)
-
 [EE5D93256D07AFEA518ABF5920A0078E : critical : Password Management : Hardcoded Password : configuration ]
     Fortify/Fortify_SCA_24.2.0/Core/go/src/net/http/request.go(975)
 
