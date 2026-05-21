@@ -2,4 +2,4 @@ scalacOptions ++= Seq(
   "-feature", "-unchecked", "-deprecation",
   "-Xlint:-unused", "-Xfatal-warnings")
 
-addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.10")
+addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.11")
