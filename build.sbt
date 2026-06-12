@@ -3,7 +3,7 @@ lazy val `play-webgoat` = (project in file(".")).enablePlugins(PlayScala)
 name := "play-webgoat"
 version := "1.0"
 
-crossScalaVersions := Seq("2.13.18", "3.3.7")
+crossScalaVersions := Seq("2.13.18", "3.3.8")
 scalaVersion := crossScalaVersions.value.head // tc-skip
 
 libraryDependencies ++= Seq(guice, ws)
